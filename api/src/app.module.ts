@@ -2,10 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DiscModule } from './disc/disc.module';
-import { DatabaseModule } from './database/database.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { Disc } from './disc/entities/disc.entity';
 
 @Module({
-  imports: [DiscModule, DatabaseModule],
+  imports: [DiscModule],
   controllers: [AppController],
   providers: [AppService],
 })

@@ -5,7 +5,7 @@ export class Disc {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ name: 'user_id' })
+  @Column()
   userId: number;
 
   @Column()
