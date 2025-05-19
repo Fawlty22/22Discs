@@ -1,12 +1,12 @@
 import { Disc } from 'src/disc/entities/disc.entity';
 import { discs } from './constants';
 
-const DiscsInfo: Disc[] = discs;
+const discsInfo: Disc[] = discs;
 
 export const mockDiscRepository = {
   findOneBy: async (criteria: Partial<Disc>): Promise<Disc | null> => {
     return (
-      DiscsInfo.find((disc) =>
+      discsInfo.find((disc) =>
         Object.entries(criteria).every(
           ([key, value]) => disc[key as keyof Disc] === value,
         ),
@@ -19,11 +19,22 @@ export const mockDiscRepository = {
     return found;
   },
   find: async (): Promise<Disc[]> => {
-    return DiscsInfo;
+    return discsInfo;
   },
   save: async (disc: Disc): Promise<Disc> => {
-    DiscsInfo.push(disc);
-    return disc;
+    let nextId = discsInfo.length + 1;
+    if (disc.id) {
+      // Update existing disc
+      const index = discsInfo.findIndex((d) => d.id === disc.id);
+      if (index !== -1) {
+        discsInfo[index] = { ...discsInfo[index], ...disc };
+        return discsInfo[index];
+      }
+    }
+    // Create new disc
+    const newDisc = { ...disc, id: nextId++ };
+    discsInfo.push(newDisc);
+    return newDisc;
   },
   // add more methods if you want...
 };

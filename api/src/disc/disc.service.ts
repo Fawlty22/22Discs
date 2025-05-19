@@ -39,9 +39,9 @@ export class DiscService {
   //     }
   //   }
 
-  //   async updateDisc(discData: Disc): Promise<Disc> {
-  //     return await this.discRepository.save(discData);
-  //   }
+  async updateDisc(discData: Disc): Promise<Disc> {
+    return await this.discRepository.save(discData);
+  }
 
   //   async deleteDisc(discId: number): Promise<DeleteResult> {
   //     return await this.discRepository.delete(discId);

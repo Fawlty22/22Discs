@@ -20,4 +20,11 @@ export class DiscController {
   async getDiscById(@Param('id') discId: number): Promise<Disc | null> {
     return await this.discService.getDiscById(+discId);
   }
+  @Put(':id')
+  async updateDisc(
+    @Param('id') discId: number,
+    @Body() disc: Disc,
+  ): Promise<Disc> {
+    return await this.discService.updateDisc(disc);
+  }
 }
