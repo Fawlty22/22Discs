@@ -1,2 +1,3 @@
 # 22Discs
-22Discs Monorepo
+
+This is an app for disc golfers. More to come...
