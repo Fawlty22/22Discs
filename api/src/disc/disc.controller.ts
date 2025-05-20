@@ -27,7 +27,7 @@ export class DiscController {
     return await this.discService.searchForDiscByName(discName);
   }
 
-  @Get('collection')
+  @Get('collection/:userId')
   async getCollection(@Param('userId') userId: number) {
     return await this.discService.getCollection(userId);
   }
