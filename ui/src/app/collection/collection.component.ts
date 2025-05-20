@@ -5,10 +5,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { DiscSearchComponent } from '../disc-search/disc-search.component';
 import { Disc } from '../shared/interfaces/disc.interface';
 import { take } from 'rxjs';
+import { BagComponent } from '../bag/bag.component';
 
 @Component({
   selector: 'app-collection',
-  imports: [MaterialModule],
+  imports: [MaterialModule, BagComponent],
   templateUrl: './collection.component.html',
   styleUrl: './collection.component.css',
 })
