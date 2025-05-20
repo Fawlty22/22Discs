@@ -1,0 +1,16 @@
+li:hover {
+  button,
+  mat-icon {
+    visibility: visible;
+  }
+}
+
+#add-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+}
+
+/* section {
+  position: relative;
+} */
