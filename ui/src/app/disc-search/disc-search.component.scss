@@ -5,11 +5,6 @@
   box-sizing: border-box;
 }
 
-.title {
-  color: var(--accent-color, #3f51b5); /* adjust to your theme */
-  margin-bottom: 1rem;
-}
-
 .dialog-content {
   width: 100%;
   height: 100%;
@@ -26,7 +21,7 @@
 .search-input {
   flex: 4;
   margin-bottom: 0.5rem;
-  min-width: 0; /* for flexbox shrinking */
+  min-width: 0;
 }
 
 .info-text {

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 class="title">Disc Search</h1>
+  <h1>Disc Search</h1>
 
   <mat-dialog-content class="dialog-content">
     <div class="search-bar">
@@ -16,14 +16,12 @@
       </button>
     </div>
 
-    <!-- Conditional rendering here, assuming Angular *ngIf and *ngFor -->
-
-    <p *ngIf="!searched" class="info-text">
-      Search for a disc to add to your collection!
-    </p>
-
-    <ul *ngIf="searched && results.length > 0" class="results-list">
-      <li *ngFor="let disc of results" class="result-item">
+    @if (!searched){
+    <p class="info-text">Search for a disc to add to your collection!</p>
+    } @if(searched && results.length > 0){
+    <ul class="results-list">
+      @for(disc of results; track disc.id){
+      <li class="result-item">
         <span
           ><b>{{ disc.name }}</b> | {{ disc.brand }}</span
         >
@@ -35,11 +33,11 @@
           <mat-icon>add</mat-icon>
         </button>
       </li>
+      }
     </ul>
-
-    <p *ngIf="searched && results.length === 0" class="info-text">
-      No results found. Try again...
-    </p>
+    } @if(searched && results.length === 0){
+    <p class="info-text">No results found. Try again...</p>
+    }
   </mat-dialog-content>
 
   <mat-dialog-actions align="end">
