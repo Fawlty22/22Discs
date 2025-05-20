@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { MaterialModule } from '../shared/modules/material.module';
 import { DiscService } from '../shared/services/disc.service';
 import { MatDialog } from '@angular/material/dialog';

@@ -8,5 +8,6 @@ export const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'collection', component: CollectionComponent },
   { path: 'bag', component: BagComponent },
-  { path: 'search', component: DiscSearchComponent },
+  { path: '**', redirectTo: '' },
+  // { path: 'search', component: DiscSearchComponent },
 ];

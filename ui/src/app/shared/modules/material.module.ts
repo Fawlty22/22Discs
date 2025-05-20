@@ -34,6 +34,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatMenuModule,
     MatTooltipModule,
     MatDialogModule,
+    MatSnackBarModule,
   ],
 })
 export class MaterialModule {}

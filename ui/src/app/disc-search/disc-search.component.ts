@@ -10,12 +10,12 @@ import { take } from 'rxjs';
 import { DiscSearchResult } from '../shared/interfaces/disc-search-result.interface';
 import { Disc } from '../shared/interfaces/disc.interface';
 import { MaterialModule } from '../shared/modules/material.module';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-disc-search',
   standalone: true,
   imports: [MaterialModule, FormsModule, CommonModule],
-  providers: [DiscService],
   templateUrl: './disc-search.component.html',
   styleUrl: './disc-search.component.css',
 })
@@ -24,7 +24,10 @@ export class DiscSearchComponent {
   searched: boolean = false;
   results: DiscSearchResult[] = [];
   collection: Disc[] = [];
-  constructor(private discService: DiscService) {}
+  constructor(
+    private discService: DiscService,
+    private snackbar: MatSnackBar
+  ) {}
   // public dialogRef: MatDialogRef<DiscSearchComponent>
 
   // close() {
@@ -48,6 +51,13 @@ export class DiscSearchComponent {
     this.discService
       .addDiscToCollection(newDisc)
       .pipe(take(1))
-      .subscribe((response: Disc) => this.collection.push(response));
+      .subscribe((response: Disc) => {
+        this.collection.push(response);
+        this.snackbar.open('Disc added to collection!', 'Close', {
+          duration: 3000, // 3 seconds
+          verticalPosition: 'bottom', // or 'top'
+          horizontalPosition: 'center', // or 'start' | 'end' | 'left' | 'right'
+        });
+      });
   }
 }

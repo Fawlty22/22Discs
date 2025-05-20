@@ -14,7 +14,7 @@ export class HeaderComponent {
 
   @Input() title: string = '';
   logout() {
-    this.discService.collection$.set([]);
+    // this.discService.collection.set([]);
     // this.authService.logout();
   }
 }
