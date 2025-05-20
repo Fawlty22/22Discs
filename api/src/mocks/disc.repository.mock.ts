@@ -21,7 +21,7 @@ export const mockDiscRepository = {
     }
     return found;
   },
-  find: async (): Promise<Disc[]> => {
+  find: async (userId: number): Promise<Disc[]> => {
     return discsInfo;
   },
   create: (partialDisc: Partial<Disc>): Disc => {

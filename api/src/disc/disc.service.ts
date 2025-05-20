@@ -39,4 +39,8 @@ export class DiscService {
   async deleteDisc(discId: number): Promise<DeleteResult> {
     return await this.discRepository.delete(discId);
   }
+
+  async getCollection(userId: number): Promise<Disc[]> {
+    return await this.discRepository.find({ where: { userId: userId } });
+  }
 }
