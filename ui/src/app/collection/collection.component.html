@@ -26,9 +26,7 @@
       <button class="invisible" mat-icon-button (click)="deleteDisc(disc.id)">
         <mat-icon>delete</mat-icon>
       </button>
-      <mat-icon [matMenuTriggerFor]="menu" class="invisible" color="accent"
-        >flight</mat-icon
-      >
+      <mat-icon [matMenuTriggerFor]="menu" class="invisible">flight</mat-icon>
       <mat-menu #menu="matMenu">
         <img [src]="disc.flightpath" alt="flightpath" />
       </mat-menu>
