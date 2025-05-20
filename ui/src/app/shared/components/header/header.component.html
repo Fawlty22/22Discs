@@ -22,7 +22,12 @@
   <button mat-icon-button routerLink="/profile" matTooltip="Profile">
     <mat-icon>supervised_user_circle</mat-icon>
   </button>
-  <button mat-icon-button (click)="logout()" matTooltip="Logout">
+  <button
+    mat-icon-button
+    (click)="logout()"
+    matTooltip="Logout"
+    routerLink="/login"
+  >
     <mat-icon>logout</mat-icon>
   </button>
 </mat-toolbar>
