@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-bag',
   imports: [],
   templateUrl: './bag.component.html',
-  styleUrl: './bag.component.scss'
+  styleUrl: './bag.component.css',
 })
-export class BagComponent {
-
-}
+export class BagComponent {}

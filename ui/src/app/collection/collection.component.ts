@@ -10,7 +10,7 @@ import { take } from 'rxjs';
   selector: 'app-collection',
   imports: [MaterialModule],
   templateUrl: './collection.component.html',
-  styleUrl: './collection.component.scss',
+  styleUrl: './collection.component.css',
 })
 export class CollectionComponent {
   collection;

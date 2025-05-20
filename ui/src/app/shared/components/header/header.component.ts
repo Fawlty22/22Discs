@@ -7,7 +7,7 @@ import { DiscService } from '../../services/disc.service';
   selector: 'app-header',
   imports: [MaterialModule, RouterModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {
   constructor(private discService: DiscService) {}

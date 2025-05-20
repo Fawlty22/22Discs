@@ -17,7 +17,7 @@ import { MaterialModule } from '../shared/modules/material.module';
   imports: [MaterialModule, FormsModule, CommonModule],
   providers: [DiscService],
   templateUrl: './disc-search.component.html',
-  styleUrl: './disc-search.component.scss',
+  styleUrl: './disc-search.component.css',
 })
 export class DiscSearchComponent {
   discName: string = '';
