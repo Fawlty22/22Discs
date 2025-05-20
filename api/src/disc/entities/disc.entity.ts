@@ -9,7 +9,7 @@ export class Disc {
   userId: number;
 
   @Column()
-  bag: boolean;
+  inBag: boolean;
 
   @Column()
   name: string;

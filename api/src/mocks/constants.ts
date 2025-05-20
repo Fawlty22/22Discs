@@ -5,7 +5,7 @@ export const discs: Disc[] = [
   {
     id: 1,
     userId: 1,
-    bag: true,
+    inBag: true,
     name: 'Destroyer',
     brand: 'Innova',
     category: 'Distance Driver',
@@ -18,7 +18,7 @@ export const discs: Disc[] = [
   {
     id: 2,
     userId: 1,
-    bag: true,
+    inBag: true,
     name: 'Buzzz',
     brand: 'Discraft',
     category: 'Midrange',
@@ -31,7 +31,7 @@ export const discs: Disc[] = [
   {
     id: 3,
     userId: 2,
-    bag: false,
+    inBag: false,
     name: 'Aviar',
     brand: 'Innova',
     category: 'Putter',
@@ -44,7 +44,7 @@ export const discs: Disc[] = [
   {
     id: 4,
     userId: 3,
-    bag: true,
+    inBag: true,
     name: 'Teebird',
     brand: 'Innova',
     category: 'Fairway Driver',
@@ -57,7 +57,7 @@ export const discs: Disc[] = [
   {
     id: 5,
     userId: 2,
-    bag: false,
+    inBag: false,
     name: 'Mako3',
     brand: 'Discraft',
     category: 'Fairway Driver',

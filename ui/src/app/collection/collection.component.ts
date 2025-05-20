@@ -33,7 +33,7 @@ export class CollectionComponent {
   }
 
   addDiscToBag(disc: Disc): void {
-    const updatedDisc = { ...disc, bag: true };
+    const updatedDisc = { ...disc, inBag: true };
     const newDisc = this.discService
       .updateDisc(updatedDisc)
       .pipe(take(1))

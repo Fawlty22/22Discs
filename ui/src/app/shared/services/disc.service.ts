@@ -51,7 +51,8 @@ export class DiscService {
       catchError((error) => {
         console.error('Error fetching data:', error);
         throw error;
-      })
+      }),
+      tap((collection: Disc[]) => this.collection$.set(collection))
     );
   }
 
