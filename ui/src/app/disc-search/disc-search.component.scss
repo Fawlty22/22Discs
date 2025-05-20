@@ -1,0 +1,50 @@
+.container {
+  padding: 0.5rem;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  color: var(--accent-color, #3f51b5); /* adjust to your theme */
+  margin-bottom: 1rem;
+}
+
+.dialog-content {
+  width: 100%;
+  height: 100%;
+}
+
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.search-input {
+  flex: 4;
+  margin-bottom: 0.5rem;
+  min-width: 0; /* for flexbox shrinking */
+}
+
+.info-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.results-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 0.5rem;
+}
+
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
