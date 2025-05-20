@@ -7,6 +7,7 @@ import {
   Put,
   Delete,
   Query,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { DiscService } from './disc.service';
 import { Disc } from './entities/disc.entity';
@@ -17,8 +18,10 @@ export class DiscController {
   constructor(private readonly discService: DiscService) {}
 
   @Get(':id')
-  async getDiscById(@Param('id') discId: number): Promise<Disc | null> {
-    return await this.discService.getDiscById(+discId);
+  async getDiscById(
+    @Param('id', ParseIntPipe) discId: number,
+  ): Promise<Disc | null> {
+    return await this.discService.getDiscById(discId);
   }
   @Put(':id')
   async updateDisc(
@@ -26,5 +29,11 @@ export class DiscController {
     @Body() disc: Disc,
   ): Promise<Disc> {
     return await this.discService.updateDisc(disc);
+  }
+  @Delete(':id')
+  async deleteDisc(
+    @Param('id', ParseIntPipe) discId: number,
+  ): Promise<DeleteResult> {
+    return await this.discService.deleteDisc(discId);
   }
 }

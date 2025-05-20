@@ -1,5 +1,6 @@
 import { Disc } from 'src/disc/entities/disc.entity';
 import { discs } from './constants';
+import { NotFoundException } from '@nestjs/common';
 
 const discsInfo: Disc[] = discs;
 
@@ -15,7 +16,9 @@ export const mockDiscRepository = {
   },
   findOneByOrFail: async (criteria: Partial<Disc>): Promise<Disc> => {
     const found = await mockDiscRepository.findOneBy(criteria);
-    if (!found) throw new Error('Disc not found');
+    if (!found) {
+      throw new NotFoundException('Disc not found');
+    }
     return found;
   },
   find: async (): Promise<Disc[]> => {
@@ -36,5 +39,12 @@ export const mockDiscRepository = {
     discsInfo.push(newDisc);
     return newDisc;
   },
-  // add more methods if you want...
+  delete: async (id: number): Promise<{ affected: number }> => {
+    const index = discsInfo.findIndex((disc) => disc.id === id);
+    if (index === -1) {
+      return { affected: 0 };
+    }
+    discsInfo.splice(index, 1);
+    return { affected: 1 };
+  },
 };

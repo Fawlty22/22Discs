@@ -19,7 +19,7 @@ export class DiscService {
   //   }
 
   async getDiscById(discId: number): Promise<Disc | null> {
-    return await this.discRepository.findOneBy({ id: discId });
+    return await this.discRepository.findOneByOrFail({ id: discId });
   }
 
   //   async getCollectionById(id: number): Promise<Disc[]> {
@@ -43,7 +43,7 @@ export class DiscService {
     return await this.discRepository.save(discData);
   }
 
-  //   async deleteDisc(discId: number): Promise<DeleteResult> {
-  //     return await this.discRepository.delete(discId);
-  //   }
+  async deleteDisc(discId: number): Promise<DeleteResult> {
+    return await this.discRepository.delete(discId);
+  }
 }
