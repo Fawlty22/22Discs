@@ -24,6 +24,11 @@ export const mockDiscRepository = {
   find: async (): Promise<Disc[]> => {
     return discsInfo;
   },
+  create: (partialDisc: Partial<Disc>): Disc => {
+    let nextId = discsInfo.length + 1;
+    partialDisc.id = nextId;
+    return Object.assign(new Disc(), partialDisc);
+  },
   save: async (disc: Disc): Promise<Disc> => {
     let nextId = discsInfo.length + 1;
     if (disc.id) {

@@ -13,10 +13,10 @@ export class DiscService {
     private readonly discRepository: Repository<Disc>,
   ) {}
 
-  //   async createDisc(discData: DiscDto): Promise<Disc> {
-  //     const disc = this.discRepository.create(discData);
-  //     return await this.discRepository.save(disc);
-  //   }
+  async createDisc(discData: DiscDto): Promise<Disc> {
+    const disc = this.discRepository.create(discData);
+    return await this.discRepository.save(disc);
+  }
 
   async getDiscById(discId: number): Promise<Disc | null> {
     return await this.discRepository.findOneByOrFail({ id: discId });
@@ -40,6 +40,7 @@ export class DiscService {
   //   }
 
   async updateDisc(discData: Disc): Promise<Disc> {
+
     return await this.discRepository.save(discData);
   }
 
