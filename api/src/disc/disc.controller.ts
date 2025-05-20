@@ -22,6 +22,11 @@ export class DiscController {
     return await this.discService.createDisc(discData);
   }
 
+  @Get('search')
+  async searchForDiscs(@Query('name') discName: string): Promise<any> {
+    return await this.discService.searchForDiscByName(discName);
+  }
+
   @Get(':id')
   async getDiscById(
     @Param('id', ParseIntPipe) discId: number,

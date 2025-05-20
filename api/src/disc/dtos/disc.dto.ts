@@ -1,7 +1,7 @@
 export class DiscDto {
   id: number;
   userId: number;
-  bag: boolean;
+  inBag: boolean;
   name: string;
   brand: string;
   category: string;

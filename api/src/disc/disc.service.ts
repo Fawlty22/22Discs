@@ -22,25 +22,17 @@ export class DiscService {
     return await this.discRepository.findOneByOrFail({ id: discId });
   }
 
-  //   async getCollectionById(id: number): Promise<Disc[]> {
-  //     return await this.discRepository.find({ where: { userId: id } });
-  //   }
-
-  //   async searchForDiscByName(
-  //     name: string,
-  //   ): Promise<DiscSearchResult | DiscSearchResult[]> {
-  //     try {
-  //       const discData = await fetch(this.discUrl + encodeURI(name));
-  //       const response: DiscSearchResult | DiscSearchResult[] =
-  //         await discData.json();
-  //       return response;
-  //     } catch (e) {
-  //       throw new HttpException('Error searching for disc' + name, e);
-  //     }
-  //   }
+  async searchForDiscByName(name: string): Promise<DiscSearchResult[]> {
+    try {
+      const discData = await fetch(this.discUrl + encodeURI(name));
+      const response: DiscSearchResult[] = await discData.json();
+      return response;
+    } catch (e) {
+      throw new HttpException('Error searching for disc' + name, e);
+    }
+  }
 
   async updateDisc(discData: Disc): Promise<Disc> {
-
     return await this.discRepository.save(discData);
   }
 
