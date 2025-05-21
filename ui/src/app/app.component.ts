@@ -10,5 +10,5 @@ import { HeaderComponent } from './shared/components/header/header.component';
 })
 export class AppComponent {
   title = '22Discs';
-  loggedIn: boolean = false;
+  loggedIn: boolean = true;
 }

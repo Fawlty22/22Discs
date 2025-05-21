@@ -14,7 +14,7 @@
       <mat-icon color="primary">add</mat-icon>
     </button>
 
-    @for(disc of collection(); track disc.id){ @if(!disc.inBag){
+    @if(discsNotInBag().length){ @for(disc of discsNotInBag(); track disc.id){
     <li class="flex items-center text-accent gap-2 mt-2">
       <span>
         <strong>{{ disc.name }}</strong> - <em>{{ disc.brand }}</em> <br />
@@ -31,6 +31,8 @@
         <img [src]="disc.flightpath" alt="flightpath" />
       </mat-menu>
     </li>
-    } }
+    } } @else {
+    <p>An empty rack...</p>
+    }
   </section>
 </div>

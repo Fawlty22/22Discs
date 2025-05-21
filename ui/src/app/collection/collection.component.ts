@@ -1,4 +1,4 @@
-import { Component, effect } from '@angular/core';
+import { Component, computed, effect, Signal } from '@angular/core';
 import { MaterialModule } from '../shared/modules/material.module';
 import { DiscService } from '../shared/services/disc.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -14,7 +14,10 @@ import { BagComponent } from '../bag/bag.component';
   styleUrl: './collection.component.css',
 })
 export class CollectionComponent {
-  collection;
+  collection: Signal<Disc[]>;
+  discsNotInBag = computed<Disc[]>(
+    computed(() => this.collection().filter((each) => !each.inBag))
+  );
 
   constructor(private discService: DiscService, private dialog: MatDialog) {
     this.collection = this.discService.collection;

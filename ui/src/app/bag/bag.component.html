@@ -1,6 +1,7 @@
 <div class="p-4 border mb-2">
   <h1 class="text-accent">Bag</h1>
-  @for(disc of collection(); track disc.id){ @if(disc.inBag){
+  <!-- @for(disc of collection(); track disc.id){
+  @if(disc.inBag){
   <li class="flex items-center text-accent gap-2 mt-2">
     <span class="">
       <strong>{{ disc.name }}</strong> - <em>{{ disc.brand }}</em> <br />
@@ -18,5 +19,27 @@
       <img [src]="disc.flightpath" alt="flightpath" />
     </mat-menu>
   </li>
-  } }
+  } 
+} -->
+  @if(bag().length){ @for(disc of bag(); track disc.id){ @if(disc.inBag){
+  <li class="flex items-center text-accent gap-2 mt-2">
+    <span class="">
+      <strong>{{ disc.name }}</strong> - <em>{{ disc.brand }}</em> <br />
+      {{ disc.speed }} | {{ disc.glide }} | {{ disc.turn }} | {{ disc.fade }}
+    </span>
+    <button
+      mat-icon-button
+      (click)="addDiscToCollection(disc)"
+      class="invisible"
+    >
+      <mat-icon>warehouse</mat-icon>
+    </button>
+    <mat-icon [matMenuTriggerFor]="menu" class="invisible">flight</mat-icon>
+    <mat-menu #menu="matMenu">
+      <img [src]="disc.flightpath" alt="flightpath" />
+    </mat-menu>
+  </li>
+  } } } @else {
+  <p>Add some discs to your bag...</p>
+  }
 </div>

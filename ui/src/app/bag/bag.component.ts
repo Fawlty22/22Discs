@@ -1,4 +1,4 @@
-import { Component, input, Input } from '@angular/core';
+import { Component, computed, input, Input } from '@angular/core';
 import { MaterialModule } from '../shared/modules/material.module';
 import { DiscService } from '../shared/services/disc.service';
 import { Disc } from '../shared/interfaces/disc.interface';
@@ -12,7 +12,7 @@ import { take } from 'rxjs';
 })
 export class BagComponent {
   collection = input<Disc[]>([]);
-
+  bag = computed(() => this.collection().filter((each) => each.inBag));
   constructor(private discService: DiscService) {}
 
   addDiscToCollection(disc: Disc) {
